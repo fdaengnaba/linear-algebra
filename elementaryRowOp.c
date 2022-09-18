@@ -39,7 +39,15 @@ int main() {
             scanf( " %d %lf", &rowSelect, &multiplier );
 
             multipleRow( rows, columns, matrix, rowSelect-1, multiplier );
-        } 
+            printMatrix(rows, columns, matrix);
+        } else if ( menu == 3 ) {
+            puts( "<row source> <multiplier> <row destination>" );
+            int rowSource, rowDestination;
+            double multiplier;
+            scanf( "%d %lf %d", &rowSource, &multiplier, &rowDestination );
+            addRow( rows, columns, matrix, rowSource, multiplier, rowDestination );
+            printMatrix(rows, columns, matrix);
+        }
         
     } while( menu != 0 );
 
@@ -67,5 +75,16 @@ int printMatrix(int rows, int columns, double matrix[rows][columns]){
 int multipleRow( int rows, int columns, double matrix[rows][columns],int rowSelect, double multiplier ){
     for (int colNum = 0; colNum < columns; colNum++ ){
         matrix[rowSelect][colNum] *= multiplier;
+    }
+}
+
+int addRow( int rows, int columns, double matrix[rows][columns], int rowSource, double multiplier, int rowDestination ){
+    if ( rowSource == rowDestination ) {
+        puts( "source row and destination row cannot be the same row!");
+        return 1;
+    }
+
+    for ( int colNum = 0; colNum < columns; colNum++ ){
+        matrix[rowDestination - 1][colNum] += (matrix[rowSource - 1][colNum] * multiplier);
     }
 }
