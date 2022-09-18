@@ -3,6 +3,7 @@
 int swapRow( int rows, int columns, double matrix[rows][columns], int a, int b );
 int printMatrix( int rows, int columns, double matrix[rows][columns]);
 int multipleRow( int rows, int columns, double matrix[rows][columns],int rowSelect, double multiplier);
+int addRow( int rows, int columns, double matrix[rows][columns], int rowSource, double muntiplier, int rowDestination);
 
 int main() {
     int rows, columns;
@@ -21,6 +22,7 @@ int main() {
     do {
         puts( "1 to swap" );
         puts( "2 to multiple a row" );
+        puts( "3 to add multiple time a row to another row");
         puts( "0 to exit" );
         scanf( " %d", &menu );
 
