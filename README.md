@@ -13,3 +13,4 @@ a simple program to do elementary row operation on a matrix
 after you inputted your matrix, you can do elementary row operation with that matrix
 - 1 to swap
 - 2 to multiple a row
+- 3 to add x times row to another row
